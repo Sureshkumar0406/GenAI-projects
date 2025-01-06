@@ -1,0 +1,10 @@
+langchain
+python-dotenv
+ipykernel
+langchain-community
+faiss-cpu
+langchain-openai
+chromadb
+pandas
+streamlit
+langchain-chroma

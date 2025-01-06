@@ -1,0 +1,12 @@
+Table,Description
+Album,"Contains details about music albums, including their titles and the artists who created them. It connects to the Artist table via a foreign key."
+Artist,"Stores information about music artists, such as their names. Each artist can have multiple albums associated with them."
+Customer,"Represents customers of the digital music store, storing personal and contact information. It links to the Employee table for assigned support representatives."
+Employee,"Contains details about employees of the store, including their roles, reporting managers, and contact details. It supports self-referencing for management hierarchy."
+Genre,"Lists various music genres available in the store, serving as a reference for classifying tracks in the Track table."
+Invoice,"Tracks purchase transactions made by customers, including billing details and the total amount spent."
+Invoice Line,"Represents individual items in an invoice, detailing the tracks purchased, their prices, and quantities."
+MediaType,"Defines the formats in which tracks are available, such as MP3 or AAC, providing a reference for the Track table."
+Playlist,"Stores information about user-created playlists, including their names. Playlists can contain multiple tracks."
+PlaylistTrack,"Acts as a junction table linking playlists and tracks, allowing many-to-many relationships between them."
+Track,"Contains detailed information about songs, including album, genre, composer, duration, and pricing, making it central to the database."
