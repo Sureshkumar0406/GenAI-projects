@@ -41,7 +41,7 @@ OpenAI API Key: Required for using the LLM for SQL generation.
 
 Clone the Repository:
 
-git clone https://github.com/yourusername/text-to-sql-app.git
+git clone https://github.com/Sureshkumar0406/GenAI-projects.git
 cd text-to-sql-app
 
 **Create a Virtual Environment:**
