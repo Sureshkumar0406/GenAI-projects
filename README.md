@@ -1,21 +1,29 @@
 **Text-to-SQL-to-Text Streamlit Application**
 
-This repository contains a Streamlit-based application that enables natural language interaction with a database. 
+This repository demonstrates how to implement a Text-to-SQL model using Langchain and deploy it on a Streamlit interface.
+Basically, it contains a Streamlit-based application that enables natural language interaction with a SQLite database where data has been stored.
 Users can ask questions in plain English, and the app generates SQL queries to retrieve data from the database. 
 The responses are then presented in user-friendly text format.
 The solution leverages the LangChain ecosystem for handling text-to-SQL generation and integrates LangSmith for tracking and debugging purposes.
 
-**Features**
+## Project Structure
 
-Natural Language to SQL Conversion: Convert plain English questions into SQL queries.
+- **app.py**: The main Streamlit app that deploys the model interface for user interaction.
+- **chinook-db.db**: SQLite database used to store data for querying. It serves as the backend for the SQL generation process.
+- **create_db.py**: Contains code for creating the SQLite database (`chinook-db.db`) and loading sample data into it.
+- **database_table_descriptions.csv**: A CSV file containing a list of tables and their descriptions, providing context for the tables in the database.
+- **examples.py**: Includes sample code for few-shot prompt templates to generate SQL queries based on example inputs.
+- **langchain_utils.py**: Code that handles connecting to the database, rephrasing the output from the LLM, and adding chat history to the LLM to provide more accurate responses to user queries.
+- **prompts.py**: Contains the few-shot prompt templates, examples, and final prompts used to guide the model in generating SQL queries.
+- **table_details.py**: Implements logic to fetch relevant tables for a given query and assist in constructing the appropriate SQL query.
 
-Streamlit Interface: A user-friendly and interactive web application for querying and visualizing data.
+## Features
 
-LangChain Integration: Utilize LangChain components for LLM-based SQL generation.
-
-LangSmith Tracking: Track and debug queries, responses, and chain performance.
-
-Database Support: Designed to work with the Chinook sample database, but extensible to other SQL databases.
+- **Natural Language Input**: Users can interact with the model by typing natural language queries into the Streamlit interface.
+- **SQL Query Generation**: The LLM (Language Model) processes the natural language input and generates an SQL query.
+- **Database Interaction**: SQL queries are executed on an SQLite database (Chinook), and results are displayed to the user.
+- **Few-Shot Learning**: The model leverages few-shot prompt engineering to generate accurate SQL queries for diverse use cases.
+- **Chat History**: The model considers previous interactions to improve its responses and generate more contextually relevant SQL queries.
 
 **Technology Stack**
 
@@ -77,64 +85,3 @@ The app generates a SQL query, executes it, and displays the result.
 **Track Queries Using LangSmith:**
 
 Access the LangSmith dashboard to monitor chain performance, inspect logs, and debug issues.
-
-Directory Structure
-
-.
-├── app.py                  # Main Streamlit application
-├── langchain_utils.py      # Helper functions for LangChain operations
-├── requirements.txt        # Python dependencies
-├── chinook.db              # Sample SQLite database
-├── .env                    # Environment variables
-└── README.md               # Project documentation
-
-**Key Components**
-
-LangChain SQL Chain: Handles the conversion of natural language to SQL queries.
-
-LangSmith Integration: Tracks each query, allowing you to debug and improve model performance.
-
-Streamlit UI: Provides an easy-to-use interface for users to interact with the database.
-
-**Example**
-
-Input:
-
-How many employees are there in the database?
-
-SQL Query:
-
-SELECT COUNT(EmployeeId) AS EmployeeCount FROM Employee;
-
-Output:
-
-There are 8 employees in the database.
-
-**Troubleshooting**
-
-Slow App Performance:
-
-Ensure @st.cache_resource is used for resource-intensive operations.
-
-Optimize database queries and embeddings.
-
-**LangSmith Integration Errors:**
-
-Verify the LANGSMITH_API_KEY is set correctly in the .env file.
-
-Ensure you have the latest version of LangSmith installed.
-
-**Database Connection Issues:**
-
-Confirm that chinook.db is in the correct location.
-
-Check for proper database driver installation.
-
-
-**Acknowledgments**
-
-LangChain Documentation
-
-Streamlit Documentation
-
-Chinook Database
