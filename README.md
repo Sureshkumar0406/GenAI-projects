@@ -49,7 +49,7 @@ OpenAI API Key: Required for using the LLM for SQL generation.
 
 Clone the Repository:
 
-git clone https://github.com/Sureshkumar0406/GenAI-projects.git
+git clone https://github.com/Sureshkumar0406/Text-to-SQL-chatbot.git
 cd text-to-sql-app
 
 **Create a Virtual Environment:**
